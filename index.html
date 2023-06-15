@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>:load:</title>
+  <meta property="og:url" content="https://japan.weyrd.space/">
+  <meta property="og:title" content="Load">
+  <meta property="og:site_name" content=":D">
+  <meta property="og:description" content="Asie">
+  <meta name="theme-color" content="#2596be">
+  <meta property="og:image" content="">
+
+</head>
+
+<style>
+  body,
+  html {
+    background-color: #2d2d2d;
+    height: 100%;
+    margin: 0;
+    color: white;
+  }
+
+  .bgimg {
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+  }
+
+  .topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+  }
+
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+</style>
+
+
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="moment-precise-range.js"></script>
+
+<script>
+  var cdDate = new Date("Aug 30, 2023 21:00:00")
+  var countDownDate = new Date("Aug 30, 2023 21:00:00").getTime()
+
+  var countdownfunction = setInterval(function() {
+
+    var now = new Date().getTime();
+
+    var today = moment()
+    paf = today.preciseDiff(cdDate, today,true)
+    year = paf['years'] + " an(s) "
+    month = paf['months'] + " mois "
+    days = paf['days'] + " jours "
+    hours = paf['hours'] + " heures "
+    minutes = paf['minutes'] + " minutes "
+    seconds = paf['seconds'] + " secondes "
+    var when = (paf['years'] == 0 ? "" : year )+ " " + month + days + hours + minutes + seconds
+
+    document.getElementById("demo").innerHTML = when;
+    
+    $('meta[property="og:description"]').attr('content', when);
+
+
+  }, 1000);
+
+</script>
+
+<body>
+
+  <div class="bgimg">
+    <div class="topleft">
+      <p>Japan</p>
+    </div>
+    <div class="middle">
+      <h1>In</h1>
+      <hr>
+      <p id="demo" style="font-size:40px;"></p>
+    </div>
+  </div>
+
+
+
+</body>
